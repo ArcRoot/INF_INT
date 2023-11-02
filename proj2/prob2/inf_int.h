@@ -23,7 +23,11 @@ public:
     inf_int(int n) {
         int temp = n;
         int cnt = 0;
-        if (n < 0) thesign = false;
+        if (n < 0) {
+            thesign = false;
+            temp = -temp;
+            n = -n;
+        }
         else thesign = true;
         while (temp != 0) {
             temp = temp / 10;
@@ -31,7 +35,7 @@ public:
         }
         length = cnt;
         digits = new char[length];
-        for (int i = 0; i < inf_int::length; i++) {
+        for (int i = 0; i < length; i++) {
             digits[i] = n % 10 + 48;
             n = n / 10;
         }
@@ -41,19 +45,19 @@ public:
             thesign = false;
             length = strlen(c) - 1;
             digits = new char[length];
-            for (int i = 1; i < inf_int::length; i++) {
-                digits[i - 1] = c[length - i];
+            for (int i = 0; i < length; i++) {
+                digits[i] = c[length - i];
             }
         }
-        else { 
+        else {
             thesign = true;
             length = strlen(c);
             digits = new char[length];
-            for (int i = 0; i < inf_int::length; i++) {
+            for (int i = 0; i < length; i++) {
                 digits[i] = c[length - i - 1];
             }
         }
-        
+
     };
     inf_int(const inf_int& cp) {
         thesign = cp.thesign;

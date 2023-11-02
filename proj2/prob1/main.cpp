@@ -39,5 +39,23 @@ int main()
 		if (tokenize());
 		else break;
 	}*/
+	inf_int a;
+	inf_int b(100);
+	inf_int c("123123");
+	inf_int d(b);
+	inf_int e = c;
+	inf_int f("-123456");
+	inf_int g(-123);
+	inf_int h = f;
+
+	cout << "a: " << a << endl;
+	cout << "b: " << b << endl;
+	cout << "c: " << c << endl;
+	cout << "d: " << d << endl;
+	cout << "e: " << e << endl;
+	cout << "f: " << f << endl;
+	cout << "g: " << g << endl;
+	cout << "h: " << h << endl;
+
 	return 0;
 }
