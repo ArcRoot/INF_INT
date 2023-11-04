@@ -13,10 +13,10 @@ bool tokenize() {
 	std::string inputString;
 	std::cout << "INPUT: ";
 	std::getline(std::cin, inputString);
+	if (inputString == "0")return false;
 	char* cString = new char[inputString.length() + 1];
 	strcpy(cString, inputString.c_str());
 	char* token = std::strtok(cString, " ");
-	if (token == NULL) return false;
 	inf_int a(token);
 	token = std::strtok(nullptr, " ");
 	char op = token[0];
@@ -34,10 +34,11 @@ bool tokenize() {
 int main()
 {
 	cout << "(positive integer)(space)(operator)(space)(positive integer)" << endl;
-	cout << "Exit the program: enter." << endl;
+	cout << "Exit the program: input 0" << endl;
 	while (true) {
 		if (tokenize());
 		else break;
 	}
+	cout << "Program is over" << endl;
 	return 0;
 }
